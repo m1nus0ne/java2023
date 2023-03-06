@@ -1,15 +1,16 @@
-package org.example;
+package lesson1;
 
 import de.vandermeer.asciitable.AsciiTable;
 
-import java.lang.Math;
 import java.util.Scanner;
+
+import static java.lang.System.*;
 
 public class Main {
     public static void main(String[] args) {
-        var scn = new Scanner(System.in);
+        var scn = new Scanner(in);
         var name = scn.nextLine();
-        System.out.printf("Hello %s!\n", name);
+        out.printf("Hello %s!%n", name);
 
         AsciiTable at = new AsciiTable();
         at.addRule();
