@@ -1,22 +1,25 @@
-package lesson2.education;
+package lesson2.education.Task;
+
+import lesson2.education.Mark;
+import lesson2.education.TaskValue.TaskValue;
 
 import java.util.Date;
 
 import static java.lang.System.out;
 
-public class Task {
+public abstract class Task {
     private Mark mark;
 
     private Date deadlineDate;
 
     private Date compliteDate;
-    private ITaskValue value;
+    protected TaskValue value;
 
     public Mark getMark() {
         return mark;
     }
 
-    public Task(Date deadlineDate, ITaskValue value) {
+    public Task(Date deadlineDate, TaskValue value) {
         this.mark = null;
         this.compliteDate = null;
         this.deadlineDate = deadlineDate;
