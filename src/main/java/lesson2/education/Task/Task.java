@@ -27,7 +27,7 @@ public abstract class Task {
     }
 
     public void evaluateTask(Mark mark, Date compliteDate) {
-        if (this.mark == null || !mark.isMutable) {
+        if (this.mark == null || !mark.isMutable()) {
             if (!this.deadlineDate.before(compliteDate)) {
                 this.mark = mark;
                 this.compliteDate = compliteDate;

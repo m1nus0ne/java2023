@@ -1,16 +1,20 @@
 package lesson2.education;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+
 import static java.lang.System.*;
 
+@Getter
+@Builder(setterPrefix = "with", builderMethodName = "privateBuilder")
 public class Mark {
     private int value;
     private double rate;
-    public final boolean isMutable;
+    @NonNull
+    protected final boolean isMutable;
     private String comment;
 
-    public int getValue() {
-        return value;
-    }
 
     public void setValue(int value) {
         if (isMutable)
@@ -29,28 +33,10 @@ public class Mark {
         return rate * value;
     }
 
+    @Deprecated
+    private static MarkBuilder builder(boolean value) {
+        return privateBuilder().withIsMutable(value);
 
-    public static final class MarkBuilder {
-        private int value;
-        private double rate;
-        private boolean isMutable;
-        private String comment;
 
-        public MarkBuilder(int value, double rate, boolean isMutable) {
-            this.value = value;
-            this.rate = rate;
-            this.isMutable = isMutable;
-        }
-
-        public MarkBuilder withComment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-        public Mark build() {
-            Mark mark = new Mark(value, rate, isMutable);
-            mark.comment = this.comment;
-            return mark;
-        }
     }
 }
