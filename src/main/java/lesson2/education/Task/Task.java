@@ -2,11 +2,15 @@ package lesson2.education.Task;
 
 import lesson2.education.Mark;
 import lesson2.education.TaskValue.TaskValue;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.Date;
 
 import static java.lang.System.out;
 
+@Getter
+@Builder(setterPrefix = "with", builderMethodName = "privateBuilder")
 public abstract class Task {
     private Mark mark;
 
@@ -15,9 +19,6 @@ public abstract class Task {
     private Date compliteDate;
     protected TaskValue value;
 
-    public Mark getMark() {
-        return mark;
-    }
 
     public Task(Date deadlineDate, TaskValue value) {
         this.mark = null;
@@ -35,5 +36,10 @@ public abstract class Task {
         }
 
 
+    }
+
+    @Deprecated
+    private static TaskBuilder builder(TaskValue value) {
+        return privateBuilder().withValue(value);
     }
 }

@@ -1,10 +1,14 @@
 package lesson2.education;
 
 import lesson2.education.Task.Task;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Builder(setterPrefix = "with", builderMethodName = "privateBuilder")
 public class Student {
     private List<Task> tasks;
 
@@ -38,41 +42,10 @@ public class Student {
         }
     }
 
-    public static final class StudentBuilder {
-        private List<Task> tasks;
-        private int id;
-        private double totalPoints;
-        private int age;
+    @Deprecated
+    private static Student.StudentBuilder builder(int value) {
+        return privateBuilder().withId(value);
 
 
-        public StudentBuilder(int id) {
-            this.id = id;
-        }
-
-        public StudentBuilder withTasks(List<Task> tasks) {
-            this.tasks = tasks;
-            return this;
-        }
-
-
-        public StudentBuilder withTotalPoints(double totalPoints) {
-            this.totalPoints = totalPoints;
-            return this;
-        }
-
-        public StudentBuilder withAge(int age) {
-            this.age = age;
-            return this;
-        }
-
-
-
-        public Student build() {
-            Student student = new Student(id);
-            student.totalPoints = this.totalPoints;
-            student.age = this.age;
-            student.tasks = this.tasks;
-            return student;
-        }
     }
 }
