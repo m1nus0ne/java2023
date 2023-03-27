@@ -1,6 +1,7 @@
 package lesson2.education;
 
 import lesson2.education.Task.Task;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@AllArgsConstructor
 @Builder(setterPrefix = "with", builderMethodName = "privateBuilder")
 public class Student {
     private List<Task> tasks;

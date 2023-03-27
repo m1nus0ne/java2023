@@ -1,5 +1,6 @@
 package lesson2.education;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -7,6 +8,7 @@ import lombok.NonNull;
 import static java.lang.System.*;
 
 @Getter
+@AllArgsConstructor
 @Builder(setterPrefix = "with", builderMethodName = "privateBuilder")
 public class Mark {
     private int value;

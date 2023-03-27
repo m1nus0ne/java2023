@@ -2,6 +2,7 @@ package lesson2.education.Task;
 
 import lesson2.education.Mark;
 import lesson2.education.TaskValue.TaskValue;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,8 +11,9 @@ import java.util.Date;
 import static java.lang.System.out;
 
 @Getter
+@AllArgsConstructor
 @Builder(setterPrefix = "with", builderMethodName = "privateBuilder")
-public abstract class Task {
+public class Task {
     private Mark mark;
 
     private Date deadlineDate;
